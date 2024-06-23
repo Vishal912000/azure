@@ -205,7 +205,7 @@ INSERT INTO ipl.players VALUES (111, 'Krunal Pandya', 'Lucknow Super Giants', 33
 
 -- COMMAND ----------
 
-select * from ipl.players
+select * from hive_metastore.ipl.players
 
 -- COMMAND ----------
 

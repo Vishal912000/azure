@@ -21,8 +21,8 @@ display(df)
 
 # COMMAND ----------
 
-input_json={}
-output_json=None
+# input_json={}
+# output_json=None
 
 # COMMAND ----------
 
@@ -31,6 +31,7 @@ arguments = dbutils.widgets.get('arguments')
 arguments = json.loads(arguments)
 catalog_name = arguments["catalog_name"]
 database_name = arguments["database_name"]
+print(arguments)
 
 # COMMAND ----------
 

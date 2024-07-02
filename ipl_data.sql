@@ -44,6 +44,43 @@ INSERT into ipl.teams values(10,'UttarPradesh','Lucknow Super Giants','Atal Biha
 
 -- COMMAND ----------
 
+
+UPDATE  hive_metastore.ipl.teams
+SET ipl_team_name='Kolkata Knight Riders'
+where team_id=7 
+
+-- COMMAND ----------
+
+ALTER TABLE hive_metastore.ipl.players SET TBLPROPERTIES ('delta.columnMapping.mode' = 'name')
+
+-- COMMAND ----------
+
+ALTER TABLE hive_metastore.ipl.players SET TBLPROPERTIES (
+   'delta.columnMapping.mode' = 'name',
+   'delta.minReaderVersion' = '2',
+   'delta.minWriterVersion' = '5')
+
+-- COMMAND ----------
+
+ALTER table hive_metastore.ipl.players
+drop column country
+
+
+-- COMMAND ----------
+
+ALTER TABLE hive_metastore.ipl.teams SET TBLPROPERTIES (
+   'delta.columnMapping.mode' = 'name',
+   'delta.minReaderVersion' = '2',
+   'delta.minWriterVersion' = '5')
+
+-- COMMAND ----------
+
+ALTER TABLE hive_metastore.ipl.teams
+rename column ipl_team_name TO
+team_name
+
+-- COMMAND ----------
+
 -- MAGIC %python
 -- MAGIC # Python Query for inserting the data
 -- MAGIC # start_player_id = 100
@@ -201,6 +238,10 @@ INSERT INTO ipl.players VALUES (108, 'Matt Henry', 'Lucknow Super Giants', 32, '
 INSERT INTO ipl.players VALUES (109, 'Yash Thakur', 'Lucknow Super Giants', 24, 'INDIA', 'Fast Bowler', NULL, NULL, 9.19, 10);
 INSERT INTO ipl.players VALUES (110, 'Mayank Yadav', 'Lucknow Super Giants', 21, 'INDIA', 'Fast Bowler', NULL, NULL, 8.54, 8);
 INSERT INTO ipl.players VALUES (111, 'Krunal Pandya', 'Lucknow Super Giants', 33, 'INDIA', 'All Rounder', 86, 130.52, 7.35, 61);
+
+
+-- COMMAND ----------
+
 
 
 -- COMMAND ----------
